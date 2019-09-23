@@ -1,0 +1,4 @@
+sentencepiece
+joblib
+mecab-python-windows
+more_itertools
