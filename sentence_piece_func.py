@@ -109,7 +109,8 @@ class SentencePieceMaker:
 
         return True
 
-    def wrapper_with_sentence_list(self, sentences: list, num_token_size: int, magic_number=2.0) -> bool:
+    def wrapper_with_sentence_list(self, sentences: list, num_token_size: int, magic_number=2.0,
+                                   path_to_save="") -> bool:
         """
         list of str からsentencepieceモデルの生成をする
 
@@ -122,10 +123,11 @@ class SentencePieceMaker:
         :param sentences:list of str
         :param num_token_size:int sentencepieceの上限語数, 0指定でMeCab経由でそれらしい数を計算
         :param magic_number:float 個人の経験上文章が短いときはmagic_numberを4位にすると怪しいtokenができにくい
+        :param path_to_save: str, セーブ先のフォルダパス
         :return:
         """
         # set save dir
-        self.set_save_directory()
+        self.set_save_directory(path_to_save=path_to_save)
         # set sentence
         self.set_sentences(sentences=sentences)
         # calculate token size
